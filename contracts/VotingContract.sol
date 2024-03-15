@@ -73,5 +73,53 @@ contract Create {
 
         //----END OF VOTER DATA
 
-        
+        constructor (){
+            votingOrganizer = msg.sender;
+        }
+
+        function setCandidate(address _address, string memory _age, string memory _name, string memory _image, string memory _ipfs) public {
+
+            required(votingOrganizer == msg.sender,
+            "Only Voting Organizer can create candidate");
+
+            _candidateId.increment();
+
+            uint256 idNumber = _candidate.current();
+            
+
+            //storage instead of memory -> storage
+            //replicates state changes
+
+            Candidate storge candidate = candidate[_address];
+
+            candidate.age = _age;
+            candidate.name = _name;
+            candidate.candidateId = idNumber;
+            candidate.image = _image;
+            candidate.voteCount = 0;
+            candidate._address = _address;
+            candidate.ipfs = _ipfs;
+
+            candidateAdress.push(_address);
+
+            emit CandidateCreate(idNumber, _age, _name, _image, candidate.voteCount, _address, _ipfs);
+        }
+
+        function getCandidate() public view returns (address[] memory){
+            return candidateAdress;
+        }
+
+        function getCandidateLenght() public view returns (uint256){
+            return candidateAdress.length;
+        }
+
+        function getCandidatedata(address _address) public view returns (string memory, string memory, uint256, string memory, uint256,string memory, address){
+
+            return (
+                candidate[_address].age, 
+                candidate[_address].name, 
+                candidate[_address].candidateId, candidate[_address].image, candidate[_address].voteCount, candidate[_address].ipfs, 
+                candidate[_address]._address
+                );
+        }
 }
