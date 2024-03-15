@@ -27,14 +27,14 @@ contract Create {
     // ipfs will contain all the data about candidate 
 
     event CandidateCreate (
-        uint256 indexed candidateId;
-        string age;
-        string name;
-        string image;
-        uint256 voteCount;
-        address _address;
-        string  ipfs;
-    )
+        uint256 indexed candidateId,
+        string age,
+        string name,
+        string image,
+        uint256 voteCount,
+        address _address,
+        string  ipfs
+    );
 
     address[] public candidateAdress;
     
@@ -59,4 +59,19 @@ contract Create {
             uint256 voter_vote;
             string voter_ipfs;
         }
+
+        event VoterCreated(
+            uint256 indexed voter_id,
+            string voter_name,
+            string voter_image,
+            address voter_address,
+            uint256 voter_allowed,
+            bool voter_voted,
+            uint256 voter_vote,
+            string voter_ipfs
+        );
+
+        //----END OF VOTER DATA
+
+        
 }
