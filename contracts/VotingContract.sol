@@ -38,7 +38,7 @@ contract Create {
 
     address[] public candidateAdress;
     
-    mapping(address => Candidate) public candidate;
+    mapping(address => Candidate) public candidates; 
 
     ////----------END OF CANDIDATE DATA
 
@@ -50,7 +50,7 @@ contract Create {
         mapping(address => Voter) public voters;
 
         struct Voter {
-            uint256 voter_id;
+            uint256 voter_voterId;
             string voter_name;
             string voter_image;
             address voter_address;
@@ -61,7 +61,7 @@ contract Create {
         }
 
         event VoterCreated(
-            uint256 indexed voter_id,
+            uint256 indexed voter_voterId,
             string voter_name,
             string voter_image,
             address voter_address,
@@ -79,18 +79,18 @@ contract Create {
 
         function setCandidate(address _address, string memory _age, string memory _name, string memory _image, string memory _ipfs) public {
 
-            required(votingOrganizer == msg.sender,
+            require(votingOrganizer == msg.sender,
             "Only Voting Organizer can create candidate");
 
             _candidateId.increment();
 
-            uint256 idNumber = _candidate.current();
+            uint256 idNumber = _candidateId.current();
             
 
             //storage instead of memory -> storage
             //replicates state changes
 
-            Candidate storge candidate = candidate[_address];
+            Candidate storage candidate = candidates[_address];
 
             candidate.age = _age;
             candidate.name = _name;
@@ -116,10 +116,10 @@ contract Create {
         function getCandidatedata(address _address) public view returns (string memory, string memory, uint256, string memory, uint256,string memory, address){
 
             return (
-                candidate[_address].age, 
-                candidate[_address].name, 
-                candidate[_address].candidateId, candidate[_address].image, candidate[_address].voteCount, candidate[_address].ipfs, 
-                candidate[_address]._address
+                candidates[_address].age, 
+                candidates[_address].name, 
+                candidates[_address].candidateId, candidates[_address].image, candidates[_address].voteCount, candidates[_address].ipfs, 
+                candidates[_address]._address
                 );
         }
 
@@ -132,7 +132,7 @@ contract Create {
 
             _voterId.increment();
 
-            uint256 idNumber = _voter.current();
+            uint256 idNumber = _voterId.current();
 
             Voter storage voter = voters[_address];
 
@@ -142,7 +142,7 @@ contract Create {
             voter.voter_name = _name;
             voter.voter_image = _image;
             voter.voter_address = _address;
-            voter.voter_id = idNumber;
+            voter.voter_voterId = idNumber;
             voter.voter_vote = 1000;
             voter.voter_voted = false;
             voter.voter_ipfs = _ipfs;
@@ -174,8 +174,8 @@ contract Create {
             return votersAddress.length;
         }
 
-        function getVotersData ( address _address) public view returns (uint256, string memory, string memory, address,bool, uint256, string memory){
-           returns(
+        function getVoterData ( address _address) public view returns (uint256, string memory, string memory, address,bool, uint256, string memory){
+           return(
             voters[_address].voter_voterId,
             voters[_address].voter_name,
             voters[_address].voter_image,
