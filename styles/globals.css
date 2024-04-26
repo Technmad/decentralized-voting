@@ -14,7 +14,8 @@ body {
     #c400d7
   ); */
 
-  background-image: linear-gradient(to right top, #1e3c72, #2a5298, #2c3e50);
+  background-image: linear-gradient(to right top, #ede8f5, #adbbda, #8697c4);
+  /* background-color: #adbbda; */
 
   height: 100vh;
   width: 100vw;
