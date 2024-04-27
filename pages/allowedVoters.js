@@ -19,8 +19,8 @@ const allowedVoters = () => {
   const router = useRouter();
   const {uploadToIPFS} = useContext(VotingContext);
 
-  const onDrop = useCallback(async(acceptedfil) => {
-    const url = await uploadToIPFS(acceptedfil[0]);
+  const onDrop = useCallback(async(acceptedfile) => {
+    const url = await uploadToIPFS(acceptedfile[0]);
     setFileURL(url);
   });
 
@@ -50,17 +50,16 @@ const allowedVoters = () => {
             </div>
           </div>
         )}
-        {
-          !fileURL && (
+        {!fileURL && (
             <div className={Style.sideInfo}>
               <div className={Style.sideInfo_box}>
                 <h4>Create Candidate For Voting</h4>
                 <p>Blockchain based voting system</p>
                 <p className={Style.sideInfo_para}>Contract Candidate List</p>
               </div>
-              <div className={Style.car}>
+              <div className={Style.card}>
                 {/* {voterArray.map((el , i) => (
-                  <div key={i+1} className={Style.card_bax}>
+                  <div key={i+1} className={Style.card_box}>
                     <div className={Style.image}>
                       <img src="" alt="Profile photo" />
                     </div>

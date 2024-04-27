@@ -1,7 +1,7 @@
 .input_box{
-    width: 100%;
+    width: 90%;
     background-color: #8697c4;
-    padding: 5rem;
+    padding: 2rem;
     border-radius: .5rem;
 }
 .input_box input{
