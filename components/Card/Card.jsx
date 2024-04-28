@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 import Style from "../Card/Card.module.css";
-import images from "../../assets";
+import images from "../../assets/images";
 
 
 
