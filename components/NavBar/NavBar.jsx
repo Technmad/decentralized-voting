@@ -48,7 +48,7 @@ const NavBar = () => {
                 </button>
                 {currentAccount && (
                   <span> {openNav ? (
-                    <AiFillLock onClick={() => openNavigation()}/>
+                    <AiFillUnlock onClick={() => openNavigation()}/>
                   ): (
                     <AiFillLock onClick={() => openNavigation()}/>
                   )} </span>
