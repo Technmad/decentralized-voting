@@ -6,8 +6,12 @@ import NavBar from "../components/NavBar/NavBar";
 const MyApp = ({ Component, pageProps }) => {
   return (
     <VotingProvider>
-      {/* <NavBar /> */}
-      <Component {...pageProps} />
+      <div>
+        <NavBar />
+        <div>
+          <Component {...pageProps} />
+        </div>
+      </div>
     </VotingProvider>
   );
 };
