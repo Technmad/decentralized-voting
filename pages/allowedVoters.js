@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { VotingContext } from "../context/Voter";
 import Style from '../styles/allowedVoter.module.css';
-import images from '../assets';
+import images from '../assets/images';
 import Button from "../components/Button/Button";
 import Input from "../components/Input/Input";
 

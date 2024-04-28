@@ -5,7 +5,7 @@ import Countdown from "react-countdown";
 import { VotingContext } from "../context/Voter";
 import Style from "../styles/index.module.css";
 import Card from "../components/Card/Card";
-import image from "../assets/index";
+import image from "../assets/images";
 
 const index = () => {
   const {
