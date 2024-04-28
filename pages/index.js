@@ -8,33 +8,29 @@ import Card from "../components/Card/Card";
 import image from "../assets/index";
 
 const index = () => {
-  const {
-    getNewCandidate,
-    candidateArray,
-    giveVote,
-    checkIfWalletIsConnected,
-    candidateLength,
-    currentAccount,
-    voterLength,
-  } = useContext(VotingContext);
-  useEffect(() => {
+  const { getNewCandidate,
+          candidateArray,
+          giveVote,
+          checkIfWalletIsConnected,
+          candidateLength,
+          currentAccount,
+          voterLength, 
+        } = useContext(VotingContext);
+  useEffect(()=>{
     checkIfWalletIsConnected();
-  });
 
-  return (
+  })
+
+  return(
     <div className={Style.home}>
       {currentAccount && (
         <div className={Style.winner}>
           <div className={Style.winner_info}>
             <div className={Style.candidate_list}>
-              <p>
-                Number of candidate: <span>{candidateLength}</span>
-              </p>
+              <p>Number of candidate: <span>{candidateLength}</span></p>
             </div>
             <div className={Style.candidate_list}>
-              <p>
-                Number of voter: <span>{voterLength}</span>
-              </p>
+            <p>Number of voter: <span>{voterLength}</span></p>
             </div>
           </div>
           <div className={Style.winner_message}>
@@ -45,9 +41,13 @@ const index = () => {
         </div>
       )}
 
-      <Card candidateArray={candidateArray} giveVote={giveVote} />
+      <Card 
+        candidateArray={candidateArray}
+        giveVote={giveVote}
+      />
     </div>
-  );
+  ) 
+
 };
 
 export default index;
