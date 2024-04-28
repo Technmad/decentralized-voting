@@ -1,0 +1,61 @@
+.card{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 2rem;
+}
+.card_box{
+    background-color: #3d52a0;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.35);
+    color: #ede8f5;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+.image img{
+    width: 100%;
+}
+.card_info{
+    line-height: 1;
+    padding: 0 1.5rem;
+}
+.card_vote{
+    color: #adbbda;
+}
+.total{
+    background-color: #adbbda;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+    font-weight: 900;
+    letter-spacing: 1;
+    color: #8697c4;
+    text-transform: capitalize;
+}
+.card_vote p{
+    font-size: 1.5rem;
+}
+.card_button{
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+.card_button button{
+    background-color: #adbbda;
+    box-shadow: 10px 10px 10px rgba(0,0,0,.35);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #8697c4;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    
+}
+
+
+
+
+@media screen and (max-width: 35rem){
+    .card{
+        grid-template-columns: 1fr;
+    }
+}
