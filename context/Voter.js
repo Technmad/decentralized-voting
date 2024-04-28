@@ -214,7 +214,7 @@ export const VotingProvider = ({ children }) => {
   }, [])
 
   return (
-    <VotingContext.Provider value={{ votingTitle, checkIfWalletIsConnected, connectWallet, uploadToIPFS, createVoter, getAllVoterData, setCandidate, getNewCandidate, error, voterArray, voterLength, voterAddress, currentAccount, candidateLength, candidateArray, uploadToIPFSCandidate}}>
+    <VotingContext.Provider value={{ votingTitle, checkIfWalletIsConnected, connectWallet, uploadToIPFS, createVoter, getAllVoterData,giveVote, setCandidate, getNewCandidate, error, voterArray, voterLength, voterAddress, currentAccount, candidateLength, candidateArray, uploadToIPFSCandidate}}>
       {children}
     </VotingContext.Provider>
   );
