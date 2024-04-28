@@ -17,7 +17,7 @@ const allowedVoters = () => {
     position : "",
   });
   const router = useRouter();
-  const {uploadToIPFS} = useContext(VotingContext);
+  const {uploadToIPFS, createVoter, voterArray, getAllVoterData} = useContext(VotingContext);
 
   const onDrop = useCallback(async(acceptedfile) => {
     const url = await uploadToIPFS(acceptedfile[0]);
@@ -29,6 +29,10 @@ const allowedVoters = () => {
     accept: "image/*",
     maxSize: 5000000,
   });
+
+  useEffect(() => {
+    getAllVoterData()
+  }, [])
 
 
   return (
@@ -58,7 +62,7 @@ const allowedVoters = () => {
                 <p className={Style.sideInfo_para}>Contract Candidate List</p>
               </div>
               <div className={Style.card}>
-                {/* {voterArray.map((el , i) => (
+                {voterArray.map((el , i) => (
                   <div key={i+1} className={Style.card_box}>
                     <div className={Style.image}>
                       <img src="" alt="Profile photo" />
@@ -69,7 +73,7 @@ const allowedVoters = () => {
                       <p>Details</p>
                     </div>
                   </div>
-                ))} */}
+                ))}
               </div>
             </div> 
           )
@@ -86,7 +90,7 @@ const allowedVoters = () => {
                   <p>Upload File: JPG,PNG,GIF,WEBM Max 10MB</p>
                   <div className={Style.voter_container_box_div_image}>
                     <Image 
-                    src={images.creator} 
+                    src={images.upload} 
                     width={150} 
                     height={150} 
                     objectFit="contain" 
@@ -120,7 +124,7 @@ const allowedVoters = () => {
             handleCLick={(e) => setFormInput({...formInput, position: e.target.value})}
           />
           <div className={Style.button}>
-            <Button btnName = "Authorized Voter" handleCLick={()=>{}}
+            <Button btnName = "Authorized Voter" handleCLick={() => createVoter(formInput, fileURL, router)}
             />
           </div>
         </div>
