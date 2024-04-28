@@ -65,12 +65,12 @@ const allowedVoters = () => {
                 {voterArray.map((el , i) => (
                   <div key={i+1} className={Style.card_box}>
                     <div className={Style.image}>
-                      <img src="" alt="Profile photo" />
+                      <img src={el[4]} alt="Profile photo" />
                     </div>
                     <div className={Style.card_info}>
-                      <p>Name</p>
-                      <p>Address</p>
-                      <p>Details</p>
+                      <p>{el[1]}</p>
+                      <p>Address : {el[3].slice(0,10)}...</p>
+                      {/* <p>Details</p> */}
                     </div>
                   </div>
                 ))}
