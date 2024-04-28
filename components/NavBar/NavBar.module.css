@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
     height: 5.5rem;
-    background-color: #231e39;
+    background-color: #3d52a0;
     box-shadow: 10px 10px 15px rgba(0,0,0,0.35);
     margin-bottom: 2rem;
 }
@@ -16,11 +16,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #fff;
+    color: #ede8f5;
 }
 
 .connect {
-    background-color: #9a02ac;
+    background-color: #adbbda;
     padding: .5rem 2rem;
     border-radius: .2rem;
     cursor: pointer;
@@ -30,7 +30,7 @@
 
 .navigation {
     position: absolute;
-    background-color: #9a02ac;
+    background-color: #adbbda;
     padding: 1rem;
     width: 15rem;
     left: 0;
@@ -43,7 +43,7 @@
     background-color: transparent;
     border: 0;
     font-size: 1rem;
-    color: #fff;
+    color: #ede8f5;
     font-weight: 600;
     cursor: pointer;
 }
@@ -64,7 +64,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 5rem 3rem;
-    background-color: #9a02ac;
+    background-color: #adbbda;
     position: absolute;
     z-index: 1111111;
     border-radius: 1rem;
