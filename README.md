@@ -13,7 +13,8 @@ Current voting systems like ballot box voting or electronic voting suffer from v
 3. Lot of paperwork involved, hence less eco-friendly and time-consuming.
 4. Difficult for differently-abled voters to reach polling booth.
 5. Cost of expenditure on elections is high.
-
+6. Just making the entire process more efficient 
+=======
 ---
 
 ## Solution:
